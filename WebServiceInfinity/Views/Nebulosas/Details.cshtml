@@ -1,0 +1,58 @@
+﻿@model WebServiceInfinity.Models.Nebulosa
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Nebulosa</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.viaLactea.id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.viaLactea.id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.x)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.x)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.y)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.y)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.z)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.z)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

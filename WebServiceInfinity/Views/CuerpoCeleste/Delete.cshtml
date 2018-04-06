@@ -1,0 +1,72 @@
+﻿@model WebServiceInfinity.Models.CuerpoCeleste
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>CuerpoCeleste</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.sistemaPlanetario.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sistemaPlanetario.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idModelo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idModelo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.x)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.x)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.y)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.y)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.z)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.z)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
