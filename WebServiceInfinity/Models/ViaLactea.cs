@@ -18,7 +18,7 @@ namespace WebServiceInfinity.Models
 
         public int totalNebulosas
         {
-            get
+            get 
             {
                 if (Nebulosas!=null)
                 return Nebulosas.Count();
