@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -32,6 +33,7 @@ namespace WebServiceInfinity.Models
         [ForeignKey("sistemaPlanetario")]
         public int sistemaPlanetarioFK { get; set; }
 
+        [JsonIgnore]
         public SistemaPlanetario sistemaPlanetario { get; set; }
 
     }

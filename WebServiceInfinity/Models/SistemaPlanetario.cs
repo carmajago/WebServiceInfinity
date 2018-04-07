@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -29,10 +30,11 @@ namespace WebServiceInfinity.Models
 
 
         public virtual Teletransportador teletransportador { get; set; }
-         public virtual Deposito deposito { get; set; }
+        public virtual Deposito deposito { get; set; }
 
         [ForeignKey("nebulosa")]
         public int nebulosaFK { get; set; }
+        [JsonIgnore]
         public Nebulosa nebulosa { get; set; }
     }
 }
