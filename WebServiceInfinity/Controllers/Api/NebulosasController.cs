@@ -37,17 +37,14 @@ namespace WebServiceInfinity.Controllers.Api
 
         // PUT: api/Nebulosas/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutNebulosa(int id, Nebulosa nebulosa)
+        public IHttpActionResult PutNebulosa(Nebulosa nebulosa)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != nebulosa.id)
-            {
-                return BadRequest();
-            }
+            
 
             db.Entry(nebulosa).State = EntityState.Modified;
 
@@ -57,7 +54,7 @@ namespace WebServiceInfinity.Controllers.Api
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!NebulosaExists(id))
+                if (!NebulosaExists(nebulosa.id))
                 {
                     return NotFound();
                 }

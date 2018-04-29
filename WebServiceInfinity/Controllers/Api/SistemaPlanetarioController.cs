@@ -37,17 +37,14 @@ namespace WebServiceInfinity.Controllers.Api
 
         // PUT: api/SistemaPlanetario/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutSistemaPlanetario(int id, SistemaPlanetario sistemaPlanetario)
+        public IHttpActionResult PutSistemaPlanetario(SistemaPlanetario sistemaPlanetario)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != sistemaPlanetario.id)
-            {
-                return BadRequest();
-            }
+          
 
             db.Entry(sistemaPlanetario).State = EntityState.Modified;
 
@@ -57,7 +54,7 @@ namespace WebServiceInfinity.Controllers.Api
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!SistemaPlanetarioExists(id))
+                if (!SistemaPlanetarioExists(sistemaPlanetario.id))
                 {
                     return NotFound();
                 }

@@ -37,17 +37,14 @@ namespace WebServiceInfinity.Controllers.Api
 
         // PUT: api/Planetas/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutPlaneta(int id, Planeta planeta)
+        public IHttpActionResult PutPlaneta(Planeta planeta)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != planeta.id)
-            {
-                return BadRequest();
-            }
+            
 
             db.Entry(planeta).State = EntityState.Modified;
 
@@ -57,7 +54,7 @@ namespace WebServiceInfinity.Controllers.Api
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!PlanetaExists(id))
+                if (!PlanetaExists(planeta.id))
                 {
                     return NotFound();
                 }
