@@ -24,6 +24,18 @@ namespace WebServiceInfinity.Models
 
         public List<SistemaPlanetario> sistemasPlanetarios { get; set; }
 
+        public int totalSistemas
+        {
+            get {
+                int total=-1;
+                if (sistemasPlanetarios != null)
+                {
+                    total = sistemasPlanetarios.Count;
+                }
+                return total; }
+        }
+      
+
         [ForeignKey("viaLactea")]
         public int ViaLacteaFK { get; set; }
 
