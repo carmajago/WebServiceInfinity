@@ -26,7 +26,7 @@ namespace WebServiceInfinity.Controllers.Api
         [ResponseType(typeof(Nebulosa))]
         public IHttpActionResult GetNebulosa(int id)
         {
-            Nebulosa nebulosa = db.Nebulosas.Find(id);
+            Nebulosa nebulosa = db.Nebulosas.Include(xx=>xx.sistemasPlanetarios).FirstOrDefault(xx=>xx.id==id);
             if (nebulosa == null)
             {
                 return NotFound();
