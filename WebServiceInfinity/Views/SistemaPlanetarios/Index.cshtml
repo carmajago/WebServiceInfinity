@@ -12,7 +12,13 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.deposito.nombre)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.nebulosa.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.teletransportador.nombre)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.nombre)
@@ -32,7 +38,13 @@
 @foreach (var item in Model) {
     <tr>
         <td>
+            @Html.DisplayFor(modelItem => item.deposito.nombre)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.nebulosa.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.teletransportador.nombre)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.nombre)

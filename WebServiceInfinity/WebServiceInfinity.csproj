@@ -190,12 +190,10 @@
     <Compile Include="Controllers\Api\TeletransportadoresController.cs" />
     <Compile Include="Controllers\Api\ViaLacteaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\Locales\DepositosController.cs" />
     <Compile Include="Controllers\Locales\NebulosasController.cs" />
     <Compile Include="Controllers\Locales\PlanetasController.cs" />
-    <Compile Include="Controllers\Locales\SistemaPlanetarioController.cs" />
-    <Compile Include="Controllers\Locales\TeletransportadoresController.cs" />
-    <Compile Include="Controllers\Locales\ViaLacteaController.cs" />
+    <Compile Include="Controllers\Locales\SistemaPlanetariosController.cs" />
+    <Compile Include="Controllers\Locales\ViaLacteasController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -283,11 +281,6 @@
     <Content Include="Views\Planetas\Details.cshtml" />
     <Content Include="Views\Planetas\Edit.cshtml" />
     <Content Include="Views\Planetas\Index.cshtml" />
-    <Content Include="Views\ViaLactea\Create.cshtml" />
-    <Content Include="Views\ViaLactea\Delete.cshtml" />
-    <Content Include="Views\ViaLactea\Details.cshtml" />
-    <Content Include="Views\ViaLactea\Edit.cshtml" />
-    <Content Include="Views\ViaLactea\Index.cshtml" />
     <Content Include="Views\Nebulosas\Create.cshtml" />
     <Content Include="Views\Nebulosas\Delete.cshtml" />
     <Content Include="Views\Nebulosas\Details.cshtml" />
@@ -303,11 +296,16 @@
     <Content Include="Views\Depositos\Details.cshtml" />
     <Content Include="Views\Depositos\Edit.cshtml" />
     <Content Include="Views\Depositos\Index.cshtml" />
-    <Content Include="Views\SistemaPlanetario\Create.cshtml" />
-    <Content Include="Views\SistemaPlanetario\Delete.cshtml" />
-    <Content Include="Views\SistemaPlanetario\Details.cshtml" />
-    <Content Include="Views\SistemaPlanetario\Edit.cshtml" />
-    <Content Include="Views\SistemaPlanetario\Index.cshtml" />
+    <Content Include="Views\SistemaPlanetarios\Create.cshtml" />
+    <Content Include="Views\SistemaPlanetarios\Delete.cshtml" />
+    <Content Include="Views\SistemaPlanetarios\Details.cshtml" />
+    <Content Include="Views\SistemaPlanetarios\Edit.cshtml" />
+    <Content Include="Views\SistemaPlanetarios\Index.cshtml" />
+    <Content Include="Views\ViaLacteas\Create.cshtml" />
+    <Content Include="Views\ViaLacteas\Delete.cshtml" />
+    <Content Include="Views\ViaLacteas\Details.cshtml" />
+    <Content Include="Views\ViaLacteas\Edit.cshtml" />
+    <Content Include="Views\ViaLacteas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

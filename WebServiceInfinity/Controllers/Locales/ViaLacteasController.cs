@@ -10,112 +10,107 @@ using WebServiceInfinity.Models;
 
 namespace WebServiceInfinity.Controllers.Locales
 {
-    public class DepositosController : Controller
+    public class ViaLacteasController : Controller
     {
         private WebServiceInfinityContext db = new WebServiceInfinityContext();
 
-        // GET: Depositos
+        // GET: ViaLacteas
         public ActionResult Index()
         {
-            var depositoes = db.Depositoes.Include(d => d.sistemaPlanetario);
-            return View(depositoes.ToList());
+            return View(db.ViaLacteas.ToList());
         }
 
-        // GET: Depositos/Details/5
+        // GET: ViaLacteas/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Deposito deposito = db.Depositoes.Find(id);
-            if (deposito == null)
+            ViaLactea viaLactea = db.ViaLacteas.Find(id);
+            if (viaLactea == null)
             {
                 return HttpNotFound();
             }
-            return View(deposito);
+            return View(viaLactea);
         }
 
-        // GET: Depositos/Create
+        // GET: ViaLacteas/Create
         public ActionResult Create()
         {
-            ViewBag.sistemaFK = new SelectList(db.SistemaPlanetarios, "id", "nombre");
             return View();
         }
 
-        // POST: Depositos/Create
+        // POST: ViaLacteas/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
-        // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
+        // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "sistemaFK,nombre,x,y,z")] Deposito deposito)
+        public ActionResult Create([Bind(Include = "id,nombre")] ViaLactea viaLactea)
         {
             if (ModelState.IsValid)
             {
-                db.Depositoes.Add(deposito);
+                db.ViaLacteas.Add(viaLactea);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.sistemaFK = new SelectList(db.SistemaPlanetarios, "id", "nombre", deposito.sistemaFK);
-            return View(deposito);
+            return View(viaLactea);
         }
 
-        // GET: Depositos/Edit/5
+        // GET: ViaLacteas/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Deposito deposito = db.Depositoes.Find(id);
-            if (deposito == null)
+            ViaLactea viaLactea = db.ViaLacteas.Find(id);
+            if (viaLactea == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.sistemaFK = new SelectList(db.SistemaPlanetarios, "id", "nombre", deposito.sistemaFK);
-            return View(deposito);
+            return View(viaLactea);
         }
 
-        // POST: Depositos/Edit/5
+        // POST: ViaLacteas/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
-        // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
+        // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "sistemaFK,nombre,x,y,z")] Deposito deposito)
+        public ActionResult Edit([Bind(Include = "id,nombre")] ViaLactea viaLactea)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(deposito).State = EntityState.Modified;
+                db.Entry(viaLactea).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.sistemaFK = new SelectList(db.SistemaPlanetarios, "id", "nombre", deposito.sistemaFK);
-            return View(deposito);
+            return View(viaLactea);
         }
 
-        // GET: Depositos/Delete/5
+        // GET: ViaLacteas/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Deposito deposito = db.Depositoes.Find(id);
-            if (deposito == null)
+            ViaLactea viaLactea = db.ViaLacteas.Find(id);
+            if (viaLactea == null)
             {
                 return HttpNotFound();
             }
-            return View(deposito);
+            return View(viaLactea);
         }
 
-        // POST: Depositos/Delete/5
+        // POST: ViaLacteas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Deposito deposito = db.Depositoes.Find(id);
-            db.Depositoes.Remove(deposito);
+            ViaLactea viaLactea = db.ViaLacteas.Find(id);
+            db.ViaLacteas.Remove(viaLactea);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

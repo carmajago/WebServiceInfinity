@@ -37,15 +37,16 @@ namespace WebServiceInfinity.Controllers.Locales
         }
 
         // GET: Nebulosas/Create
-        public ActionResult Create()
+        public ActionResult Create(int id)
         {
-            ViewBag.ViaLacteaFK = new SelectList(db.ViaLacteas, "id", "id");
+
+            ViewBag.ViaLacteaFK = id;
             return View();
         }
 
         // POST: Nebulosas/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
-        // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
+        // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "id,nombre,x,y,z,ViaLacteaFK")] Nebulosa nebulosa)
@@ -57,7 +58,7 @@ namespace WebServiceInfinity.Controllers.Locales
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ViaLacteaFK = new SelectList(db.ViaLacteas, "id", "id", nebulosa.ViaLacteaFK);
+            
             return View(nebulosa);
         }
 
@@ -73,13 +74,13 @@ namespace WebServiceInfinity.Controllers.Locales
             {
                 return HttpNotFound();
             }
-            ViewBag.ViaLacteaFK = new SelectList(db.ViaLacteas, "id", "id", nebulosa.ViaLacteaFK);
+            ViewBag.ViaLacteaFK = new SelectList(db.ViaLacteas, "id", "nombre", nebulosa.ViaLacteaFK);
             return View(nebulosa);
         }
 
         // POST: Nebulosas/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
-        // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
+        // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "id,nombre,x,y,z,ViaLacteaFK")] Nebulosa nebulosa)
@@ -90,7 +91,7 @@ namespace WebServiceInfinity.Controllers.Locales
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.ViaLacteaFK = new SelectList(db.ViaLacteas, "id", "id", nebulosa.ViaLacteaFK);
+            ViewBag.ViaLacteaFK = new SelectList(db.ViaLacteas, "id", "nombre", nebulosa.ViaLacteaFK);
             return View(nebulosa);
         }
 

@@ -14,7 +14,7 @@ namespace WebServiceInfinity.Models
         public string nombre { get; set; }
         
         
-        public  List<Nebulosa> Nebulosas { get; set; }
+        public virtual List<Nebulosa> Nebulosas { get; set; }
 
         public int totalNebulosas
         {

@@ -45,7 +45,7 @@ namespace WebServiceInfinity.Controllers.Locales
 
         // POST: Planetas/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
-        // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
+        // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "id,nombre,idModelo,x,y,z,iridio,platino,paladio,elementoZero,sistemaPlanetarioFK")] Planeta planeta)
@@ -79,7 +79,7 @@ namespace WebServiceInfinity.Controllers.Locales
 
         // POST: Planetas/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
-        // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
+        // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "id,nombre,idModelo,x,y,z,iridio,platino,paladio,elementoZero,sistemaPlanetarioFK")] Planeta planeta)

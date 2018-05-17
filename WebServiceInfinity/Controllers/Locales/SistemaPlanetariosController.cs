@@ -10,18 +10,18 @@ using WebServiceInfinity.Models;
 
 namespace WebServiceInfinity.Controllers.Locales
 {
-    public class SistemaPlanetarioController : Controller
+    public class SistemaPlanetariosController : Controller
     {
         private WebServiceInfinityContext db = new WebServiceInfinityContext();
 
-        // GET: SistemaPlanetario
+        // GET: SistemaPlanetarios
         public ActionResult Index()
         {
-            var sistemaPlanetarios = db.SistemaPlanetarios.Include(s => s.nebulosa);
+            var sistemaPlanetarios = db.SistemaPlanetarios.Include(s => s.deposito).Include(s => s.nebulosa).Include(s => s.teletransportador);
             return View(sistemaPlanetarios.ToList());
         }
 
-        // GET: SistemaPlanetario/Details/5
+        // GET: SistemaPlanetarios/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,16 +36,18 @@ namespace WebServiceInfinity.Controllers.Locales
             return View(sistemaPlanetario);
         }
 
-        // GET: SistemaPlanetario/Create
+        // GET: SistemaPlanetarios/Create
         public ActionResult Create()
         {
+            ViewBag.id = new SelectList(db.Depositoes, "sistemaFK", "nombre");
             ViewBag.nebulosaFK = new SelectList(db.Nebulosas, "id", "nombre");
+            ViewBag.id = new SelectList(db.Teletransportadors, "sistemaFK", "nombre");
             return View();
         }
 
-        // POST: SistemaPlanetario/Create
+        // POST: SistemaPlanetarios/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
-        // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
+        // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "id,nombre,x,y,z,nebulosaFK")] SistemaPlanetario sistemaPlanetario)
@@ -57,11 +59,13 @@ namespace WebServiceInfinity.Controllers.Locales
                 return RedirectToAction("Index");
             }
 
+            ViewBag.id = new SelectList(db.Depositoes, "sistemaFK", "nombre", sistemaPlanetario.id);
             ViewBag.nebulosaFK = new SelectList(db.Nebulosas, "id", "nombre", sistemaPlanetario.nebulosaFK);
+            ViewBag.id = new SelectList(db.Teletransportadors, "sistemaFK", "nombre", sistemaPlanetario.id);
             return View(sistemaPlanetario);
         }
 
-        // GET: SistemaPlanetario/Edit/5
+        // GET: SistemaPlanetarios/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -73,13 +77,15 @@ namespace WebServiceInfinity.Controllers.Locales
             {
                 return HttpNotFound();
             }
+            ViewBag.id = new SelectList(db.Depositoes, "sistemaFK", "nombre", sistemaPlanetario.id);
             ViewBag.nebulosaFK = new SelectList(db.Nebulosas, "id", "nombre", sistemaPlanetario.nebulosaFK);
+            ViewBag.id = new SelectList(db.Teletransportadors, "sistemaFK", "nombre", sistemaPlanetario.id);
             return View(sistemaPlanetario);
         }
 
-        // POST: SistemaPlanetario/Edit/5
+        // POST: SistemaPlanetarios/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
-        // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
+        // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "id,nombre,x,y,z,nebulosaFK")] SistemaPlanetario sistemaPlanetario)
@@ -90,11 +96,13 @@ namespace WebServiceInfinity.Controllers.Locales
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.id = new SelectList(db.Depositoes, "sistemaFK", "nombre", sistemaPlanetario.id);
             ViewBag.nebulosaFK = new SelectList(db.Nebulosas, "id", "nombre", sistemaPlanetario.nebulosaFK);
+            ViewBag.id = new SelectList(db.Teletransportadors, "sistemaFK", "nombre", sistemaPlanetario.id);
             return View(sistemaPlanetario);
         }
 
-        // GET: SistemaPlanetario/Delete/5
+        // GET: SistemaPlanetarios/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -109,7 +117,7 @@ namespace WebServiceInfinity.Controllers.Locales
             return View(sistemaPlanetario);
         }
 
-        // POST: SistemaPlanetario/Delete/5
+        // POST: SistemaPlanetarios/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
