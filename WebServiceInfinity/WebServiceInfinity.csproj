@@ -185,34 +185,26 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\Api\DepositosController.cs" />
     <Compile Include="Controllers\Api\NebulosasController.cs" />
+    <Compile Include="Controllers\Api\NodosController.cs" />
     <Compile Include="Controllers\Api\PlanetasController.cs" />
     <Compile Include="Controllers\Api\SistemaPlanetarioController.cs" />
-    <Compile Include="Controllers\Api\TeletransportadoresController.cs" />
+    <Compile Include="Controllers\Api\TeletransportadorController.cs" />
     <Compile Include="Controllers\Api\ViaLacteaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Locales\NebulosasController.cs" />
-    <Compile Include="Controllers\Locales\PlanetasController.cs" />
-    <Compile Include="Controllers\Locales\SistemaPlanetariosController.cs" />
     <Compile Include="Controllers\Locales\ViaLacteasController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201804040302373_mge1.cs" />
-    <Compile Include="Migrations\201804040302373_mge1.Designer.cs">
-      <DependentUpon>201804040302373_mge1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201804052226178_msch3.cs" />
-    <Compile Include="Migrations\201804052226178_msch3.Designer.cs">
-      <DependentUpon>201804052226178_msch3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201804052234045_mschfasf.cs" />
-    <Compile Include="Migrations\201804052234045_mschfasf.Designer.cs">
-      <DependentUpon>201804052234045_mschfasf.cs</DependentUpon>
+    <Compile Include="Migrations\201805182246316_mgas.cs" />
+    <Compile Include="Migrations\201805182246316_mgas.Designer.cs">
+      <DependentUpon>201805182246316_mgas.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Deposito.cs" />
     <Compile Include="Models\Nebulosa.cs" />
+    <Compile Include="Models\Nodo.cs" />
     <Compile Include="Models\Planeta.cs" />
     <Compile Include="Models\SistemaPlanetario.cs" />
     <Compile Include="Models\Teletransportador.cs" />
@@ -324,14 +316,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201804040302373_mge1.resx">
-      <DependentUpon>201804040302373_mge1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804052226178_msch3.resx">
-      <DependentUpon>201804052226178_msch3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804052234045_mschfasf.resx">
-      <DependentUpon>201804052234045_mschfasf.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201805182246316_mgas.resx">
+      <DependentUpon>201805182246316_mgas.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -8,25 +8,9 @@ using System.Web;
 
 namespace WebServiceInfinity.Models
 {
-    public class Deposito
+    public class Deposito:Nodo
     {
        
-        [Display(Name = "Nombre")]
-        public string nombre { get; set; }
-
-   
-
-        public float x { get; set; }
-        public float y { get; set; }
-        public float z { get; set; }
-
-
-        [Key, ForeignKey("sistemaPlanetario")]
-
-        public int sistemaFK { get; set; }
-        [JsonIgnore]
-        public SistemaPlanetario sistemaPlanetario { get; set; }
-
 
     }
 }

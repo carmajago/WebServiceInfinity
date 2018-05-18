@@ -12,21 +12,21 @@ using WebServiceInfinity.Models;
 
 namespace WebServiceInfinity.Controllers.Api
 {
-    public class TeletransportadoresController : ApiController
+    public class TeletransportadorController : ApiController
     {
         private WebServiceInfinityContext db = new WebServiceInfinityContext();
 
-        // GET: api/Teletransportadores
-        public IQueryable<Teletransportador> GetTeletransportadors()
+        // GET: api/Teletransportador
+        public IQueryable<Teletransportador> GetNodoes()
         {
-            return db.Teletransportadors;
+            return db.Teletransportadores;
         }
 
-        // GET: api/Teletransportadores/5
+        // GET: api/Teletransportador/5
         [ResponseType(typeof(Teletransportador))]
         public IHttpActionResult GetTeletransportador(int id)
         {
-            Teletransportador teletransportador = db.Teletransportadors.Find(id);
+            Teletransportador teletransportador = db.Teletransportadores.Find(id);
             if (teletransportador == null)
             {
                 return NotFound();
@@ -35,7 +35,7 @@ namespace WebServiceInfinity.Controllers.Api
             return Ok(teletransportador);
         }
 
-        // PUT: api/Teletransportadores/5
+        // PUT: api/Teletransportador/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutTeletransportador(int id, Teletransportador teletransportador)
         {
@@ -44,7 +44,7 @@ namespace WebServiceInfinity.Controllers.Api
                 return BadRequest(ModelState);
             }
 
-            if (id != teletransportador.sistemaFK)
+            if (id != teletransportador.id)
             {
                 return BadRequest();
             }
@@ -70,7 +70,7 @@ namespace WebServiceInfinity.Controllers.Api
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Teletransportadores
+        // POST: api/Teletransportador
         [ResponseType(typeof(Teletransportador))]
         public IHttpActionResult PostTeletransportador(Teletransportador teletransportador)
         {
@@ -79,38 +79,23 @@ namespace WebServiceInfinity.Controllers.Api
                 return BadRequest(ModelState);
             }
 
-            db.Teletransportadors.Add(teletransportador);
+            db.Teletransportadores.Add(teletransportador);
+            db.SaveChanges();
 
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (DbUpdateException)
-            {
-                if (TeletransportadorExists(teletransportador.sistemaFK))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return CreatedAtRoute("DefaultApi", new { id = teletransportador.sistemaFK }, teletransportador);
+            return CreatedAtRoute("DefaultApi", new { id = teletransportador.id }, teletransportador);
         }
 
-        // DELETE: api/Teletransportadores/5
+        // DELETE: api/Teletransportador/5
         [ResponseType(typeof(Teletransportador))]
         public IHttpActionResult DeleteTeletransportador(int id)
         {
-            Teletransportador teletransportador = db.Teletransportadors.Find(id);
+            Teletransportador teletransportador = db.Teletransportadores.Find(id);
             if (teletransportador == null)
             {
                 return NotFound();
             }
 
-            db.Teletransportadors.Remove(teletransportador);
+            db.Teletransportadores.Remove(teletransportador);
             db.SaveChanges();
 
             return Ok(teletransportador);
@@ -127,7 +112,7 @@ namespace WebServiceInfinity.Controllers.Api
 
         private bool TeletransportadorExists(int id)
         {
-            return db.Teletransportadors.Count(e => e.sistemaFK == id) > 0;
+            return db.Teletransportadores.Count(e => e.id == id) > 0;
         }
     }
 }

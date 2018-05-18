@@ -8,24 +8,21 @@ using System.Web;
 
 namespace WebServiceInfinity.Models
 {
-    public class SistemaPlanetario
+    public abstract class Nodo
     {
         [Key]
         public int id { get; set; }
-
-        [Display(Name = "Nombre")]
         public string nombre { get; set; }
-
 
         public float x { get; set; }
         public float y { get; set; }
         public float z { get; set; }
 
-        public virtual List<Nodo> nodos { get; set; }
+        public string idModelo { get; set; }
 
-        [ForeignKey("nebulosa")]
-        public int nebulosaFK { get; set; }
+        [ForeignKey("sistemaPlanetario")]
+        public int sistemaPlanetarioFK { get; set; }
         [JsonIgnore]
-        public Nebulosa nebulosa { get; set; }
+        public SistemaPlanetario sistemaPlanetario { get; set; }
     }
 }

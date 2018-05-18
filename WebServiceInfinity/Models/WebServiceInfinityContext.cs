@@ -26,10 +26,12 @@ namespace WebServiceInfinity.Models
 
         public System.Data.Entity.DbSet<WebServiceInfinity.Models.ViaLactea> ViaLacteas { get; set; }
 
+        public System.Data.Entity.DbSet<WebServiceInfinity.Models.Nodo> Nodos { get; set; }
+
+        public System.Data.Entity.DbSet<WebServiceInfinity.Models.Teletransportador> Teletransportadores { get; set; }
+        public System.Data.Entity.DbSet<WebServiceInfinity.Models.Deposito> Depositos { get; set; }
+
         public System.Data.Entity.DbSet<WebServiceInfinity.Models.Planeta> Planetas { get; set; }
 
-        public System.Data.Entity.DbSet<WebServiceInfinity.Models.Teletransportador> Teletransportadors { get; set; }
-
-        public System.Data.Entity.DbSet<WebServiceInfinity.Models.Deposito> Depositoes { get; set; }
     }
 }

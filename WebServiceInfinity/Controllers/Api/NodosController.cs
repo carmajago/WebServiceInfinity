@@ -12,44 +12,44 @@ using WebServiceInfinity.Models;
 
 namespace WebServiceInfinity.Controllers.Api
 {
-    public class DepositosController : ApiController
+    public class NodosController : ApiController
     {
         private WebServiceInfinityContext db = new WebServiceInfinityContext();
 
-        // GET: api/Depositos
-        public IQueryable<Deposito> GetNodoes()
+        // GET: api/Nodos
+        public IQueryable<Nodo> GetNodos()
         {
-            return db.Depositos;
+            return db.Nodos;
         }
 
-        // GET: api/Depositos/5
-        [ResponseType(typeof(Deposito))]
-        public IHttpActionResult GetDeposito(int id)
+        // GET: api/Nodos/5
+        [ResponseType(typeof(Nodo))]
+        public IHttpActionResult GetNodo(int id)
         {
-            Deposito deposito = db.Depositos.Find(id);
-            if (deposito == null)
+            Nodo nodo = db.Nodos.Find(id);
+            if (nodo == null)
             {
                 return NotFound();
             }
 
-            return Ok(deposito);
+            return Ok(nodo);
         }
 
-        // PUT: api/Depositos/5
+        // PUT: api/Nodos/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutDeposito(int id, Deposito deposito)
+        public IHttpActionResult PutNodo(int id, Nodo nodo)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != deposito.id)
+            if (id != nodo.id)
             {
                 return BadRequest();
             }
 
-            db.Entry(deposito).State = EntityState.Modified;
+            db.Entry(nodo).State = EntityState.Modified;
 
             try
             {
@@ -57,7 +57,7 @@ namespace WebServiceInfinity.Controllers.Api
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!DepositoExists(id))
+                if (!NodoExists(id))
                 {
                     return NotFound();
                 }
@@ -70,35 +70,35 @@ namespace WebServiceInfinity.Controllers.Api
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Depositos
-        [ResponseType(typeof(Deposito))]
-        public IHttpActionResult PostDeposito(Deposito deposito)
+        // POST: api/Nodos
+        [ResponseType(typeof(Nodo))]
+        public IHttpActionResult PostNodo(Nodo nodo)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Depositos.Add(deposito);
+            db.Nodos.Add(nodo);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = deposito.id }, deposito);
+            return CreatedAtRoute("DefaultApi", new { id = nodo.id }, nodo);
         }
 
-        // DELETE: api/Depositos/5
-        [ResponseType(typeof(Deposito))]
-        public IHttpActionResult DeleteDeposito(int id)
+        // DELETE: api/Nodos/5
+        [ResponseType(typeof(Nodo))]
+        public IHttpActionResult DeleteNodo(int id)
         {
-            Deposito deposito = db.Depositos.Find(id);
-            if (deposito == null)
+            Nodo nodo = db.Nodos.Find(id);
+            if (nodo == null)
             {
                 return NotFound();
             }
 
-            db.Depositos.Remove(deposito);
+            db.Nodos.Remove(nodo);
             db.SaveChanges();
 
-            return Ok(deposito);
+            return Ok(nodo);
         }
 
         protected override void Dispose(bool disposing)
@@ -110,9 +110,9 @@ namespace WebServiceInfinity.Controllers.Api
             base.Dispose(disposing);
         }
 
-        private bool DepositoExists(int id)
+        private bool NodoExists(int id)
         {
-            return db.Depositos.Count(e => e.id == id) > 0;
+            return db.Nodos.Count(e => e.id == id) > 0;
         }
     }
 }

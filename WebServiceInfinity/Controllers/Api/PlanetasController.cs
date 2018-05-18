@@ -17,7 +17,7 @@ namespace WebServiceInfinity.Controllers.Api
         private WebServiceInfinityContext db = new WebServiceInfinityContext();
 
         // GET: api/Planetas
-        public IQueryable<Planeta> GetPlanetas()
+        public IQueryable<Planeta> GetNodoes()
         {
             return db.Planetas;
         }
@@ -37,14 +37,17 @@ namespace WebServiceInfinity.Controllers.Api
 
         // PUT: api/Planetas/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutPlaneta(Planeta planeta)
+        public IHttpActionResult PutPlaneta(int id, Planeta planeta)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            
+            if (id != planeta.id)
+            {
+                return BadRequest();
+            }
 
             db.Entry(planeta).State = EntityState.Modified;
 
@@ -54,7 +57,7 @@ namespace WebServiceInfinity.Controllers.Api
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!PlanetaExists(planeta.id))
+                if (!PlanetaExists(id))
                 {
                     return NotFound();
                 }
@@ -109,7 +112,7 @@ namespace WebServiceInfinity.Controllers.Api
 
         private bool PlanetaExists(int id)
         {
-            return db.Planetas.Count(e => e.id == id) > 0;
+            return db.Teletransportadores.Count(e => e.id == id) > 0;
         }
     }
 }
