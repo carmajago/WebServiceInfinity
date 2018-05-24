@@ -27,10 +27,7 @@ namespace WebServiceInfinity.Controllers.Api
         public IHttpActionResult GetSistemaPlanetario(int id)
         {
             SistemaPlanetario sistemaPlanetario = db.SistemaPlanetarios.Find(id);
-            if (sistemaPlanetario == null)
-            {
-                return NotFound();
-            }
+           
 
             return Ok(sistemaPlanetario);
         }

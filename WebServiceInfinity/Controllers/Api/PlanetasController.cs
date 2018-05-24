@@ -26,13 +26,13 @@ namespace WebServiceInfinity.Controllers.Api
         [ResponseType(typeof(Planeta))]
         public IHttpActionResult GetPlaneta(int id)
         {
-            Planeta planeta = db.Planetas.Find(id);
-            if (planeta == null)
+            List<Planeta> planetas = db.Planetas.Where(xx=>xx.sistemaPlanetarioFK ==id).ToList();
+            if (planetas == null)
             {
                 return NotFound();
             }
 
-            return Ok(planeta);
+            return Ok(planetas);
         }
 
         // PUT: api/Planetas/5

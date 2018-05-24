@@ -26,12 +26,8 @@ namespace WebServiceInfinity.Controllers.Api
         [ResponseType(typeof(Teletransportador))]
         public IHttpActionResult GetTeletransportador(int id)
         {
-            Teletransportador teletransportador = db.Teletransportadores.Find(id);
-            if (teletransportador == null)
-            {
-                return NotFound();
-            }
-
+            Teletransportador teletransportador = db.Teletransportadores.FirstOrDefault(xx=>xx.sistemaPlanetarioFK==id);
+           
             return Ok(teletransportador);
         }
 

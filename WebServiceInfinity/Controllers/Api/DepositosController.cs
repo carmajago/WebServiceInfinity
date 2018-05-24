@@ -26,11 +26,8 @@ namespace WebServiceInfinity.Controllers.Api
         [ResponseType(typeof(Deposito))]
         public IHttpActionResult GetDeposito(int id)
         {
-            Deposito deposito = db.Depositos.Find(id);
-            if (deposito == null)
-            {
-                return NotFound();
-            }
+            Deposito deposito = db.Depositos.FirstOrDefault(xx => xx.sistemaPlanetarioFK == id);
+            
 
             return Ok(deposito);
         }
