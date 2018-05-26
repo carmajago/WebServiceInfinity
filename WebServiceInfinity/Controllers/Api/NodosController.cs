@@ -90,11 +90,17 @@ namespace WebServiceInfinity.Controllers.Api
         public IHttpActionResult DeleteNodo(int id)
         {
             Nodo nodo = db.Nodos.Find(id);
+
             if (nodo == null)
             {
                 return NotFound();
             }
 
+            List<AristaNodo> aristas= db.AristaNodoes.Where(xx => xx.origenFK == id || xx.destinoFK == id).ToList();
+            
+            if(aristas!=null)
+            db.AristaNodoes.RemoveRange(aristas);
+            
             db.Nodos.Remove(nodo);
             db.SaveChanges();
 

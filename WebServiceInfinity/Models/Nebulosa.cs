@@ -21,7 +21,7 @@ namespace WebServiceInfinity.Models
         public float y { get; set; }
         public float z { get; set; }
 
-
+        public List<AristaSistema> grafo { get; set; }
         public List<SistemaPlanetario> sistemasPlanetarios { get; set; }
 
         public int totalSistemas

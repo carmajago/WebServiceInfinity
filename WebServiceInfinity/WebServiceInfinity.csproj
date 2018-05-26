@@ -183,6 +183,8 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\Api\AristaNodoController.cs" />
+    <Compile Include="Controllers\Api\AristaSistemaController.cs" />
     <Compile Include="Controllers\Api\DepositosController.cs" />
     <Compile Include="Controllers\Api\NebulosasController.cs" />
     <Compile Include="Controllers\Api\NodosController.cs" />
@@ -197,11 +199,17 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201805182246316_mgas.cs" />
-    <Compile Include="Migrations\201805182246316_mgas.Designer.cs">
-      <DependentUpon>201805182246316_mgas.cs</DependentUpon>
+    <Compile Include="Migrations\201805251611269_mjd.cs" />
+    <Compile Include="Migrations\201805251611269_mjd.Designer.cs">
+      <DependentUpon>201805251611269_mjd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805251723307_hjsio.cs" />
+    <Compile Include="Migrations\201805251723307_hjsio.Designer.cs">
+      <DependentUpon>201805251723307_hjsio.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AristaNodo.cs" />
+    <Compile Include="Models\AristaSistema.cs" />
     <Compile Include="Models\Deposito.cs" />
     <Compile Include="Models\Nebulosa.cs" />
     <Compile Include="Models\Nodo.cs" />
@@ -316,8 +324,11 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201805182246316_mgas.resx">
-      <DependentUpon>201805182246316_mgas.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201805251611269_mjd.resx">
+      <DependentUpon>201805251611269_mjd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805251723307_hjsio.resx">
+      <DependentUpon>201805251723307_hjsio.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

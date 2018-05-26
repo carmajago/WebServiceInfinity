@@ -26,7 +26,7 @@ namespace WebServiceInfinity.Controllers.Api
         [ResponseType(typeof(Nebulosa))]
         public IHttpActionResult GetNebulosa(int id)
         {
-            Nebulosa nebulosa = db.Nebulosas.Include(xx=>xx.sistemasPlanetarios).FirstOrDefault(xx=>xx.id==id);
+            Nebulosa nebulosa = db.Nebulosas.Include(xx=>xx.sistemasPlanetarios).Include(yy=>yy.grafo).FirstOrDefault(xx=>xx.id==id);
             if (nebulosa == null)
             {
                 return NotFound();
@@ -91,6 +91,10 @@ namespace WebServiceInfinity.Controllers.Api
             {
                 return NotFound();
             }
+            List<AristaSistema> aristas = db.AristaSistemas.Where(xx => xx.origenFK == id || xx.destinoFK == id).ToList();
+
+            if (aristas != null)
+                db.AristaSistemas.RemoveRange(aristas);
 
             db.Nebulosas.Remove(nebulosa);
             db.SaveChanges();

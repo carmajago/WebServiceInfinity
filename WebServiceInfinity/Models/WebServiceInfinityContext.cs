@@ -33,5 +33,8 @@ namespace WebServiceInfinity.Models
 
         public System.Data.Entity.DbSet<WebServiceInfinity.Models.Planeta> Planetas { get; set; }
 
+        public System.Data.Entity.DbSet<WebServiceInfinity.Models.AristaNodo> AristaNodoes { get; set; }
+
+        public System.Data.Entity.DbSet<WebServiceInfinity.Models.AristaSistema> AristaSistemas { get; set; }
     }
 }

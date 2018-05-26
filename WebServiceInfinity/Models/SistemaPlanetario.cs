@@ -21,11 +21,17 @@ namespace WebServiceInfinity.Models
         public float y { get; set; }
         public float z { get; set; }
 
-        public virtual List<Nodo> nodos { get; set; }
+        [JsonIgnore]
+        public  List<Nodo> nodos { get; set; }
+
+        public virtual List<AristaNodo> grafo { get; set; }
 
         [ForeignKey("nebulosa")]
         public int nebulosaFK { get; set; }
         [JsonIgnore]
         public Nebulosa nebulosa { get; set; }
+
+        [JsonIgnore]
+        public AristaSistema arista { get; set; }
     }
 }

@@ -20,9 +20,15 @@ namespace WebServiceInfinity.Models
 
         public string idModelo { get; set; }
 
+        [JsonIgnore]
+        public AristaNodo arista { get; set; }
+
         [ForeignKey("sistemaPlanetario")]
         public int sistemaPlanetarioFK { get; set; }
         [JsonIgnore]
         public SistemaPlanetario sistemaPlanetario { get; set; }
+
+
+
     }
 }
