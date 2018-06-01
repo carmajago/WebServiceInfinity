@@ -194,18 +194,15 @@
     <Compile Include="Controllers\Api\ViaLacteaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Locales\NebulosasController.cs" />
+    <Compile Include="Controllers\Locales\SistemaPlanetariosController.cs" />
     <Compile Include="Controllers\Locales\ViaLacteasController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201805251611269_mjd.cs" />
-    <Compile Include="Migrations\201805251611269_mjd.Designer.cs">
-      <DependentUpon>201805251611269_mjd.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805251723307_hjsio.cs" />
-    <Compile Include="Migrations\201805251723307_hjsio.Designer.cs">
-      <DependentUpon>201805251723307_hjsio.cs</DependentUpon>
+    <Compile Include="Migrations\201806010220202_migraBool.cs" />
+    <Compile Include="Migrations\201806010220202_migraBool.Designer.cs">
+      <DependentUpon>201806010220202_migraBool.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AristaNodo.cs" />
@@ -281,11 +278,6 @@
     <Content Include="Views\Planetas\Details.cshtml" />
     <Content Include="Views\Planetas\Edit.cshtml" />
     <Content Include="Views\Planetas\Index.cshtml" />
-    <Content Include="Views\Nebulosas\Create.cshtml" />
-    <Content Include="Views\Nebulosas\Delete.cshtml" />
-    <Content Include="Views\Nebulosas\Details.cshtml" />
-    <Content Include="Views\Nebulosas\Edit.cshtml" />
-    <Content Include="Views\Nebulosas\Index.cshtml" />
     <Content Include="Views\Teletransportadores\Create.cshtml" />
     <Content Include="Views\Teletransportadores\Delete.cshtml" />
     <Content Include="Views\Teletransportadores\Details.cshtml" />
@@ -306,6 +298,11 @@
     <Content Include="Views\ViaLacteas\Details.cshtml" />
     <Content Include="Views\ViaLacteas\Edit.cshtml" />
     <Content Include="Views\ViaLacteas\Index.cshtml" />
+    <Content Include="Views\Nebulosas\Create.cshtml" />
+    <Content Include="Views\Nebulosas\Delete.cshtml" />
+    <Content Include="Views\Nebulosas\Details.cshtml" />
+    <Content Include="Views\Nebulosas\Edit.cshtml" />
+    <Content Include="Views\Nebulosas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -324,11 +321,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201805251611269_mjd.resx">
-      <DependentUpon>201805251611269_mjd.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805251723307_hjsio.resx">
-      <DependentUpon>201805251723307_hjsio.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201806010220202_migraBool.resx">
+      <DependentUpon>201806010220202_migraBool.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

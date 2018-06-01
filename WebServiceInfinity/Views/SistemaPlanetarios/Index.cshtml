@@ -6,19 +6,14 @@
 
 <h2>Index</h2>
 
+
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.deposito.nombre)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.nebulosa.nombre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.teletransportador.nombre)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.nombre)
@@ -32,19 +27,26 @@
         <th>
             @Html.DisplayNameFor(model => model.z)
         </th>
+        <th>
+            IridioTtl
+        </th>
+        <th>
+            PlatinoTtl
+        </th>
+        <th>
+            PaladioTtl
+        </th>
+        <th>
+            ElementoZeroTtl
+        </th>
+
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.deposito.nombre)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.nebulosa.nombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.teletransportador.nombre)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.nombre)
@@ -58,6 +60,19 @@
         <td>
             @Html.DisplayFor(modelItem => item.z)
         </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.iridioTotal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.platinoTotal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.paladioTotal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.elementoZeroTotal)
+        </td>
+
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
             @Html.ActionLink("Details", "Details", new { id=item.id }) |

@@ -30,7 +30,9 @@
             
             @Html.ActionLink("Details", "Details", new { id=item.id }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.id })|
-            @Html.ActionLink("Create", "Nebulosas", new { id = item.id })
+            <a class="btn btn-success btn-sm" href="@Url.Action("Create", "Nebulosas",new { id=item.id })">
+                Agregar Nebulosas
+            </a>
         </td>
     </tr>
 }

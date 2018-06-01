@@ -26,6 +26,9 @@
         <th>
             @Html.DisplayNameFor(model => model.z)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.danger)
+        </th>
         <th></th>
     </tr>
 
@@ -47,9 +50,16 @@
             @Html.DisplayFor(modelItem => item.z)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.danger)
+        </td>
+        <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
             @Html.ActionLink("Details", "Details", new { id=item.id }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.id })
+            <a class="btn btn-success btn-sm" href="@Url.Action("Create", "SistemaPlanetario",new { id=item.id })">
+                Agregar sistema planetario
+            </a>
+
         </td>
     </tr>
 }

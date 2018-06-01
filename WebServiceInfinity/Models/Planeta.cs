@@ -10,8 +10,7 @@ namespace WebServiceInfinity.Models
 {
     public class Planeta:Nodo
     {
-        
-        
+           
 
  
 

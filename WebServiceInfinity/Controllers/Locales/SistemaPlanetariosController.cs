@@ -10,113 +10,113 @@ using WebServiceInfinity.Models;
 
 namespace WebServiceInfinity.Controllers.Locales
 {
-    public class NebulosasController : Controller
+    public class SistemaPlanetariosController : Controller
     {
         private WebServiceInfinityContext db = new WebServiceInfinityContext();
 
-        // GET: Nebulosas
+        // GET: SistemaPlanetarios
         public ActionResult Index()
         {
-            var nebulosas = db.Nebulosas.Include(n => n.viaLactea);
-            return View(nebulosas.ToList());
+            var sistemaPlanetarios = db.SistemaPlanetarios.Include(s => s.nebulosa);
+            return View(sistemaPlanetarios.ToList());
         }
 
-        // GET: Nebulosas/Details/5
+        // GET: SistemaPlanetarios/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Nebulosa nebulosa = db.Nebulosas.Find(id);
-            if (nebulosa == null)
+            SistemaPlanetario sistemaPlanetario = db.SistemaPlanetarios.Find(id);
+            if (sistemaPlanetario == null)
             {
                 return HttpNotFound();
             }
-            return View(nebulosa);
+            return View(sistemaPlanetario);
         }
 
-        // GET: Nebulosas/Create
+        // GET: SistemaPlanetarios/Create
         public ActionResult Create(int id)
         {
-            ViewBag.ViaLacteaFK = id;
+            ViewBag.nebulosaFK =id;
             return View();
         }
 
-        // POST: Nebulosas/Create
+        // POST: SistemaPlanetarios/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Nebulosa nebulosa)
+        public ActionResult Create(SistemaPlanetario sistemaPlanetario)
         {
             if (ModelState.IsValid)
             {
-                nebulosa.ViaLacteaFK = nebulosa.id;
-                db.Nebulosas.Add(nebulosa);
+                sistemaPlanetario.nebulosaFK = sistemaPlanetario.id;
+                db.SistemaPlanetarios.Add(sistemaPlanetario);
                 db.SaveChanges();
-                return RedirectToAction("Details", "ViaLacteas", new { id = nebulosa.ViaLacteaFK });
+                return RedirectToAction("Index");
             }
 
-            ViewBag.ViaLacteaFK = new SelectList(db.ViaLacteas, "id", "nombre", nebulosa.ViaLacteaFK);
-            return View(nebulosa);
+            ViewBag.nebulosaFK = new SelectList(db.Nebulosas, "id", "nombre", sistemaPlanetario.nebulosaFK);
+            return View(sistemaPlanetario);
         }
 
-        // GET: Nebulosas/Edit/5
+        // GET: SistemaPlanetarios/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Nebulosa nebulosa = db.Nebulosas.Find(id);
-            if (nebulosa == null)
+            SistemaPlanetario sistemaPlanetario = db.SistemaPlanetarios.Find(id);
+            if (sistemaPlanetario == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.ViaLacteaFK = new SelectList(db.ViaLacteas, "id", "nombre", nebulosa.ViaLacteaFK);
-            return View(nebulosa);
+            ViewBag.nebulosaFK = new SelectList(db.Nebulosas, "id", "nombre", sistemaPlanetario.nebulosaFK);
+            return View(sistemaPlanetario);
         }
 
-        // POST: Nebulosas/Edit/5
+        // POST: SistemaPlanetarios/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,nombre,x,y,z,danger,ViaLacteaFK")] Nebulosa nebulosa)
+        public ActionResult Edit([Bind(Include = "id,nombre,x,y,z,nebulosaFK")] SistemaPlanetario sistemaPlanetario)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(nebulosa).State = EntityState.Modified;
+                db.Entry(sistemaPlanetario).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.ViaLacteaFK = new SelectList(db.ViaLacteas, "id", "nombre", nebulosa.ViaLacteaFK);
-            return View(nebulosa);
+            ViewBag.nebulosaFK = new SelectList(db.Nebulosas, "id", "nombre", sistemaPlanetario.nebulosaFK);
+            return View(sistemaPlanetario);
         }
 
-        // GET: Nebulosas/Delete/5
+        // GET: SistemaPlanetarios/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Nebulosa nebulosa = db.Nebulosas.Find(id);
-            if (nebulosa == null)
+            SistemaPlanetario sistemaPlanetario = db.SistemaPlanetarios.Find(id);
+            if (sistemaPlanetario == null)
             {
                 return HttpNotFound();
             }
-            return View(nebulosa);
+            return View(sistemaPlanetario);
         }
 
-        // POST: Nebulosas/Delete/5
+        // POST: SistemaPlanetarios/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Nebulosa nebulosa = db.Nebulosas.Find(id);
-            db.Nebulosas.Remove(nebulosa);
+            SistemaPlanetario sistemaPlanetario = db.SistemaPlanetarios.Find(id);
+            db.SistemaPlanetarios.Remove(sistemaPlanetario);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

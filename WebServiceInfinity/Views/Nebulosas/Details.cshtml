@@ -50,8 +50,50 @@
             @Html.DisplayFor(model => model.z)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.danger)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.danger)
+        </dd>
+
     </dl>
 </div>
+
+<h3 class="text-center">Sistemas planetarios de la Nebulosa</h3>
+<table class="table table-bordered table-striped">
+
+    <tr>
+        <th>
+            Nombre
+        </th>
+        <th>
+            Opción
+        </th>
+
+    </tr>
+    @foreach (var item in Model.sistemasPlanetarios)
+    {
+
+
+        <tr>
+            <td>
+                @item.nombre
+            </td>
+
+
+            <td>
+                <a class="btn btn-info btn-sm" href='@Url.Action("Details", "sistemaPlanetarios",new { id = item.id})'>
+                    <span class="glyphicon glyphicon-info-sign"></span> Datos Stm.Planetario
+                </a>
+            </td>
+        </tr>
+
+    }
+</table>
+
+
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
     @Html.ActionLink("Back to List", "Index")
