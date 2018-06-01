@@ -42,6 +42,7 @@ namespace WebServiceInfinity.Models
 
         public float elementoZeroTotal { get { return ObtElementoZeroTotal(); } }
 
+      
         private float ObtIridioTotal()
         {
             float total = 0;

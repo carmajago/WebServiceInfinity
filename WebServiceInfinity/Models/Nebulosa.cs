@@ -25,7 +25,7 @@ namespace WebServiceInfinity.Models
 
         public List<AristaSistema> grafo { get; set; }
 
-        [JsonIgnore]
+        
         public virtual List<SistemaPlanetario> sistemasPlanetarios { get; set; }
 
         public int totalSistemas
