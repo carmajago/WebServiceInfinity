@@ -194,6 +194,7 @@
     <Compile Include="Controllers\Api\ViaLacteaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Locales\NebulosasController.cs" />
+    <Compile Include="Controllers\Locales\NodoesController.cs" />
     <Compile Include="Controllers\Locales\SistemaPlanetariosController.cs" />
     <Compile Include="Controllers\Locales\ViaLacteasController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
@@ -303,6 +304,11 @@
     <Content Include="Views\Nebulosas\Details.cshtml" />
     <Content Include="Views\Nebulosas\Edit.cshtml" />
     <Content Include="Views\Nebulosas\Index.cshtml" />
+    <Content Include="Views\Nodoes\Create.cshtml" />
+    <Content Include="Views\Nodoes\Delete.cshtml" />
+    <Content Include="Views\Nodoes\Details.cshtml" />
+    <Content Include="Views\Nodoes\Edit.cshtml" />
+    <Content Include="Views\Nodoes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

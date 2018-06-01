@@ -1,0 +1,97 @@
+﻿@model WebServiceInfinity.Models.Planeta
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Nodo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.sistemaPlanetario.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sistemaPlanetario.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.x)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.x)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.y)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.y)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.z)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.z)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idModelo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idModelo)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.iridio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.iridio)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.paladio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.paladio)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.platino)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.platino)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.elementoZero)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.elementoZero)
+        </dd>
+
+
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
