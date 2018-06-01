@@ -200,9 +200,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201806010220202_migraBool.cs" />
-    <Compile Include="Migrations\201806010220202_migraBool.Designer.cs">
-      <DependentUpon>201806010220202_migraBool.cs</DependentUpon>
+    <Compile Include="Migrations\201806010403463_mgha.cs" />
+    <Compile Include="Migrations\201806010403463_mgha.Designer.cs">
+      <DependentUpon>201806010403463_mgha.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AristaNodo.cs" />
@@ -321,8 +321,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201806010220202_migraBool.resx">
-      <DependentUpon>201806010220202_migraBool.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201806010403463_mgha.resx">
+      <DependentUpon>201806010403463_mgha.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
