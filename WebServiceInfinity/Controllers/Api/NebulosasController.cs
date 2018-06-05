@@ -78,7 +78,7 @@ namespace WebServiceInfinity.Controllers.Api
 
             db.Nebulosas.Add(nebulosa);
             db.SaveChanges();
-
+          
             return CreatedAtRoute("DefaultApi", new { id = nebulosa.id }, nebulosa);
         }
 
