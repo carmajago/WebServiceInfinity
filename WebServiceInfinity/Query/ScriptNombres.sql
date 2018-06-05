@@ -68,3 +68,6 @@ INSERT INTO [dbo].[Nombres] ([Id], [Nombre]) VALUES (67, N'Leto      ')
 INSERT INTO [dbo].[Nombres] ([Id], [Nombre]) VALUES (68, N'Driope    ')
 INSERT INTO [dbo].[Nombres] ([Id], [Nombre]) VALUES (69, N'Ninfa     ')
 INSERT INTO [dbo].[Nombres] ([Id], [Nombre]) VALUES (70, N'Flaita    ')
+
+
+select * from Nombres;
