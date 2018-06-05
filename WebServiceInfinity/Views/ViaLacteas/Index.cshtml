@@ -1,40 +1,48 @@
 ﻿@model IEnumerable<WebServiceInfinity.Models.ViaLactea>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Vias Lacteas";
 }
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.nombre)
-        </th>
-        <th>Total Nebulosas</th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.nombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.totalNebulosas)
-        </td>
-        <td>
-            
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })|
-            <a class="btn btn-success btn-sm" href="@Url.Action("Create", "Nebulosas",new { id=item.id })">
-                Agregar Nebulosas
-            </a>
-        </td>
-    </tr>
-}
+<center>
+    <h2>Vías Lacteas</h2>
 
-</table>
+    <a class="btn btn-success btn-sm" href="@Url.Action("Create", "ViaLacteas")">
+        Agregar Vía Lactea
+    </a>
+    </center>
+
+  
+    <table class="table">
+        <tr>
+            <th>
+                Nombre Vía Lactea
+            </th>
+            <th>Total Nebulosas</th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.totalNebulosas) Nebulosa(s)
+                </td>
+                <td>
+
+                    <a class="btn btn-info btn-sm" href='@Url.Action("Details", "ViaLacteas",new { id = item.id})'>
+                        <span class="glyphicon glyphicon-info-sign"></span> Ver Nebulosas
+                    </a>
+                   
+                    @Html.ActionLink("Eliminar Vía Lactea", "Delete", new { id = item.id })|
+
+                </td>
+            </tr>
+        }
+
+    </table>

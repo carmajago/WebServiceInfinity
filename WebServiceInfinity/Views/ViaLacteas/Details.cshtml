@@ -1,25 +1,18 @@
 ﻿@model WebServiceInfinity.Models.ViaLactea
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Nebulosas de Via Lactea";
 }
 
-<h2>Details</h2>
+<center>
+    <h2>VÍA LACTEA:  @Html.DisplayFor(model => model.nombre)</h2>
+    
+        <a class="btn btn-success btn-sm" href="@Url.Action("Create", "Nebulosas",new { Model.id })">
+            Agregar Nebulosas
+        </a>
+    
+</center>
 
-<div>
-    <h4>ViaLactea</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-           Via Lactea
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.nombre)
-        </dd>
-
-    </dl>
-</div>
 
 <h3 class="text-center">Nebulosas</h3>
 <table class="table table-bordered table-striped">
@@ -29,17 +22,22 @@
             Nombre
         </th>
         <th>
+            Total Sist.Planetarios
+        </th>
+        <th>
             Opción
         </th>
         
     </tr>
     @foreach (var item in Model.Nebulosas)
     {
-
-
+        
         <tr>
             <td>
                 @item.nombre
+            </td>
+            <td>
+                @item.sistemasPlanetarios.Count Sistema(s)
             </td>
 
             
@@ -47,12 +45,12 @@
                 <a class="btn btn-info btn-sm" href='@Url.Action("Details", "Nebulosas",new { id = item.id})'>
                     <span class="glyphicon glyphicon-info-sign"></span> Datos Nebulosa
                 </a>
+                @Html.ActionLink("Eliminar Nebulosa", "Delete", new { id = item.id })
             </td>
         </tr>
-
+       
     }
 </table>
-
 
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |

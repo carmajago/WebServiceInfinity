@@ -4,10 +4,16 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<center>
+    <h2>NEBULOSA:  @Html.DisplayFor(model => model.nombre)</h2>
 
+    <a class="btn btn-success btn-sm" href="@Url.Action("Create", "SistemaPlanetarios",new { Model.id })">
+        Agregar Sistema Planetario
+    </a>
+
+</center>
 <div>
-    <h4>Nebulosa</h4>
+    
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -69,6 +75,9 @@
             Nombre
         </th>
         <th>
+            Total Planetas
+        </th>
+        <th>
             Opción
         </th>
 
@@ -82,11 +91,16 @@
                 @item.nombre
             </td>
 
+            <td>
+                @item.nodos.Count Planeta(s)
+            </td>
+
 
             <td>
                 <a class="btn btn-info btn-sm" href='@Url.Action("Details", "sistemaPlanetarios",new { id = item.id})'>
                     <span class="glyphicon glyphicon-info-sign"></span> Datos Stm.Planetario
                 </a>
+                @Html.ActionLink("Eliminar Stm. Planetario", "Delete", new { id = item.id })
             </td>
         </tr>
 
