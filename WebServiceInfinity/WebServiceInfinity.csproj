@@ -185,9 +185,11 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\Api\AristaNodoController.cs" />
     <Compile Include="Controllers\Api\AristaSistemaController.cs" />
+    <Compile Include="Controllers\Api\DepositosController.cs" />
     <Compile Include="Controllers\Api\NebulosasController.cs" />
     <Compile Include="Controllers\Api\PlanetasController.cs" />
     <Compile Include="Controllers\Api\SistemaPlanetarioController.cs" />
+    <Compile Include="Controllers\Api\TeletransportadorController.cs" />
     <Compile Include="Controllers\Api\ViaLacteaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Locales\NebulosasController.cs" />

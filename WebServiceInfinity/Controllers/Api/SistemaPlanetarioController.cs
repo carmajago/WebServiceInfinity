@@ -36,6 +36,9 @@ namespace WebServiceInfinity.Controllers.Api
         [ResponseType(typeof(void))]
         public IHttpActionResult PutSistemaPlanetario(SistemaPlanetario sistemaPlanetario)
         {
+
+            sistemaPlanetario.nodos = null;
+            sistemaPlanetario.grafo = null;
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);

@@ -39,6 +39,9 @@ namespace WebServiceInfinity.Controllers.Api
         [ResponseType(typeof(void))]
         public IHttpActionResult PutNebulosa(Nebulosa nebulosa)
         {
+            nebulosa.grafo = null;
+            nebulosa.sistemasPlanetarios = null;
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);

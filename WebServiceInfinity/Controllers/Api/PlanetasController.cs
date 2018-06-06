@@ -39,6 +39,10 @@ namespace WebServiceInfinity.Controllers.Api
         [ResponseType(typeof(void))]
         public IHttpActionResult PutPlaneta(int id, Planeta planeta)
         {
+            planeta.deposito = null;
+            planeta.teletransportador = null;
+
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);

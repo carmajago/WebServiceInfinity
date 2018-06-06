@@ -23,7 +23,7 @@ namespace WebServiceInfinity.Models
 
         public bool danger { get; set; }
 
-        public List<AristaSistema> grafo { get; set; }
+        public virtual List<AristaSistema> grafo { get; set; }
 
         
         public virtual List<SistemaPlanetario> sistemasPlanetarios { get; set; }
