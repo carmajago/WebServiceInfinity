@@ -57,14 +57,7 @@ namespace WebServiceInfinity.Controllers.Api
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!PlanetaExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                
             }
 
             return StatusCode(HttpStatusCode.NoContent);
@@ -110,9 +103,6 @@ namespace WebServiceInfinity.Controllers.Api
             base.Dispose(disposing);
         }
 
-        private bool PlanetaExists(int id)
-        {
-            return db.Teletransportadores.Count(e => e.id == id) > 0;
-        }
+        
     }
 }

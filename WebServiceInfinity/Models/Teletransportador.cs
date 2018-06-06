@@ -8,9 +8,11 @@ using System.Web;
 
 namespace WebServiceInfinity.Models
 {
-    public class Teletransportador:Nodo
+    public class Teletransportador
     {
-    
-      
+        public Planeta planeta { get; set; }
+
+        [ForeignKey("planeta"), Key]
+        public int planetaFK { get; set; }
     }
 }

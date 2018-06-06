@@ -15,10 +15,10 @@ namespace WebServiceInfinity.Models
 
         
         [ForeignKey("origenFK")]
-        public virtual Nodo origen { get; set; }
+        public virtual Planeta origen { get; set; }
        
         [ForeignKey("destinoFK")]
-        public virtual Nodo destino { get; set; }
+        public virtual Planeta destino { get; set; }
 
         public int origenFK { get; set; }
         public int destinoFK { get; set; }

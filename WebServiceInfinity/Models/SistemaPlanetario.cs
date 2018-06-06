@@ -21,8 +21,8 @@ namespace WebServiceInfinity.Models
         public float y { get; set; }
         public float z { get; set; }
 
-        [JsonIgnore]
-        public virtual List<Nodo> nodos { get; set; }
+       
+        public virtual List<Planeta> nodos { get; set; }
 
         public virtual List<AristaNodo> grafo { get; set; }
 

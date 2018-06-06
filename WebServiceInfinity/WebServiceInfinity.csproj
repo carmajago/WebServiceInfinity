@@ -20,8 +20,8 @@
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort />
-    <IISExpressAnonymousAuthentication />
-    <IISExpressWindowsAuthentication />
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication>
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
@@ -185,32 +185,28 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\Api\AristaNodoController.cs" />
     <Compile Include="Controllers\Api\AristaSistemaController.cs" />
-    <Compile Include="Controllers\Api\DepositosController.cs" />
     <Compile Include="Controllers\Api\NebulosasController.cs" />
-    <Compile Include="Controllers\Api\NodosController.cs" />
     <Compile Include="Controllers\Api\PlanetasController.cs" />
     <Compile Include="Controllers\Api\SistemaPlanetarioController.cs" />
-    <Compile Include="Controllers\Api\TeletransportadorController.cs" />
     <Compile Include="Controllers\Api\ViaLacteaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Locales\NebulosasController.cs" />
-    <Compile Include="Controllers\Locales\NodoesController.cs" />
     <Compile Include="Controllers\Locales\SistemaPlanetariosController.cs" />
     <Compile Include="Controllers\Locales\ViaLacteasController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201806010403463_mgha.cs" />
-    <Compile Include="Migrations\201806010403463_mgha.Designer.cs">
-      <DependentUpon>201806010403463_mgha.cs</DependentUpon>
+    <Compile Include="Migrations\201806052036040_mg1.cs" />
+    <Compile Include="Migrations\201806052036040_mg1.Designer.cs">
+      <DependentUpon>201806052036040_mg1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AristaNodo.cs" />
     <Compile Include="Models\AristaSistema.cs" />
     <Compile Include="Models\Deposito.cs" />
     <Compile Include="Models\Nebulosa.cs" />
-    <Compile Include="Models\Nodo.cs" />
+    <Compile Include="Models\Nombre.cs" />
     <Compile Include="Models\Planeta.cs" />
     <Compile Include="Models\SistemaPlanetario.cs" />
     <Compile Include="Models\Teletransportador.cs" />
@@ -331,8 +327,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201806010403463_mgha.resx">
-      <DependentUpon>201806010403463_mgha.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201806052036040_mg1.resx">
+      <DependentUpon>201806052036040_mg1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

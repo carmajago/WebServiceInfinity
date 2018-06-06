@@ -7,13 +7,13 @@ namespace WebServiceInfinity.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class hjsio : IMigrationMetadata
+    public sealed partial class mg1 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(hjsio));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(mg1));
         
         string IMigrationMetadata.Id
         {
-            get { return "201805251723307_hjsio"; }
+            get { return "201806052036040_mg1"; }
         }
         
         string IMigrationMetadata.Source

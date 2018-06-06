@@ -3,7 +3,7 @@ namespace WebServiceInfinity.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class migraBool : DbMigration
+    public partial class mg1 : DbMigration
     {
         public override void Up()
         {
@@ -18,14 +18,14 @@ namespace WebServiceInfinity.Migrations
                     })
                 .PrimaryKey(t => t.id)
                 .ForeignKey("dbo.SistemaPlanetarios", t => t.sistemaFK, cascadeDelete: true)
-                .ForeignKey("dbo.Nodoes", t => t.destinoFK, cascadeDelete: false)
-                .ForeignKey("dbo.Nodoes", t => t.origenFK, cascadeDelete: false)
+                .ForeignKey("dbo.Planetas", t => t.destinoFK, cascadeDelete: false)
+                .ForeignKey("dbo.Planetas", t => t.origenFK, cascadeDelete: false)
                 .Index(t => t.origenFK)
                 .Index(t => t.destinoFK)
                 .Index(t => t.sistemaFK);
             
             CreateTable(
-                "dbo.Nodoes",
+                "dbo.Planetas",
                 c => new
                     {
                         id = c.Int(nullable: false, identity: true),
@@ -35,11 +35,10 @@ namespace WebServiceInfinity.Migrations
                         z = c.Single(nullable: false),
                         idModelo = c.String(),
                         sistemaPlanetarioFK = c.Int(nullable: false),
-                        iridio = c.Double(),
-                        platino = c.Double(),
-                        paladio = c.Double(),
-                        elementoZero = c.Double(),
-                        Discriminator = c.String(nullable: false, maxLength: 128),
+                        iridio = c.Double(nullable: false),
+                        platino = c.Double(nullable: false),
+                        paladio = c.Double(nullable: false),
+                        elementoZero = c.Double(nullable: false),
                         arista_id = c.Int(),
                     })
                 .PrimaryKey(t => t.id)
@@ -47,6 +46,16 @@ namespace WebServiceInfinity.Migrations
                 .ForeignKey("dbo.SistemaPlanetarios", t => t.sistemaPlanetarioFK, cascadeDelete: true)
                 .Index(t => t.sistemaPlanetarioFK)
                 .Index(t => t.arista_id);
+            
+            CreateTable(
+                "dbo.Depositoes",
+                c => new
+                    {
+                        planetaFK = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.planetaFK)
+                .ForeignKey("dbo.Planetas", t => t.planetaFK)
+                .Index(t => t.planetaFK);
             
             CreateTable(
                 "dbo.SistemaPlanetarios",
@@ -76,9 +85,9 @@ namespace WebServiceInfinity.Migrations
                         nebulosaFK = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.id)
-                .ForeignKey("dbo.SistemaPlanetarios", t => t.destinoFK, cascadeDelete: true)
+                .ForeignKey("dbo.SistemaPlanetarios", t => t.destinoFK, cascadeDelete: false)
                 .ForeignKey("dbo.Nebulosas", t => t.nebulosaFK, cascadeDelete: false)
-                .ForeignKey("dbo.SistemaPlanetarios", t => t.origenFK, cascadeDelete: false)
+                .ForeignKey("dbo.SistemaPlanetarios", t => t.origenFK, cascadeDelete: true)
                 .Index(t => t.origenFK)
                 .Index(t => t.destinoFK)
                 .Index(t => t.nebulosaFK);
@@ -108,13 +117,24 @@ namespace WebServiceInfinity.Migrations
                     })
                 .PrimaryKey(t => t.id);
             
+            CreateTable(
+                "dbo.Teletransportadors",
+                c => new
+                    {
+                        planetaFK = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.planetaFK)
+                .ForeignKey("dbo.Planetas", t => t.planetaFK)
+                .Index(t => t.planetaFK);
+            
         }
         
         public override void Down()
         {
-            DropForeignKey("dbo.AristaNodoes", "origenFK", "dbo.Nodoes");
-            DropForeignKey("dbo.AristaNodoes", "destinoFK", "dbo.Nodoes");
-            DropForeignKey("dbo.Nodoes", "sistemaPlanetarioFK", "dbo.SistemaPlanetarios");
+            DropForeignKey("dbo.AristaNodoes", "origenFK", "dbo.Planetas");
+            DropForeignKey("dbo.AristaNodoes", "destinoFK", "dbo.Planetas");
+            DropForeignKey("dbo.Teletransportadors", "planetaFK", "dbo.Planetas");
+            DropForeignKey("dbo.Planetas", "sistemaPlanetarioFK", "dbo.SistemaPlanetarios");
             DropForeignKey("dbo.SistemaPlanetarios", "nebulosaFK", "dbo.Nebulosas");
             DropForeignKey("dbo.AristaNodoes", "sistemaFK", "dbo.SistemaPlanetarios");
             DropForeignKey("dbo.SistemaPlanetarios", "arista_id", "dbo.AristaSistemas");
@@ -122,23 +142,28 @@ namespace WebServiceInfinity.Migrations
             DropForeignKey("dbo.Nebulosas", "ViaLacteaFK", "dbo.ViaLacteas");
             DropForeignKey("dbo.AristaSistemas", "nebulosaFK", "dbo.Nebulosas");
             DropForeignKey("dbo.AristaSistemas", "destinoFK", "dbo.SistemaPlanetarios");
-            DropForeignKey("dbo.Nodoes", "arista_id", "dbo.AristaNodoes");
+            DropForeignKey("dbo.Depositoes", "planetaFK", "dbo.Planetas");
+            DropForeignKey("dbo.Planetas", "arista_id", "dbo.AristaNodoes");
+            DropIndex("dbo.Teletransportadors", new[] { "planetaFK" });
             DropIndex("dbo.Nebulosas", new[] { "ViaLacteaFK" });
             DropIndex("dbo.AristaSistemas", new[] { "nebulosaFK" });
             DropIndex("dbo.AristaSistemas", new[] { "destinoFK" });
             DropIndex("dbo.AristaSistemas", new[] { "origenFK" });
             DropIndex("dbo.SistemaPlanetarios", new[] { "arista_id" });
             DropIndex("dbo.SistemaPlanetarios", new[] { "nebulosaFK" });
-            DropIndex("dbo.Nodoes", new[] { "arista_id" });
-            DropIndex("dbo.Nodoes", new[] { "sistemaPlanetarioFK" });
+            DropIndex("dbo.Depositoes", new[] { "planetaFK" });
+            DropIndex("dbo.Planetas", new[] { "arista_id" });
+            DropIndex("dbo.Planetas", new[] { "sistemaPlanetarioFK" });
             DropIndex("dbo.AristaNodoes", new[] { "sistemaFK" });
             DropIndex("dbo.AristaNodoes", new[] { "destinoFK" });
             DropIndex("dbo.AristaNodoes", new[] { "origenFK" });
+            DropTable("dbo.Teletransportadors");
             DropTable("dbo.ViaLacteas");
             DropTable("dbo.Nebulosas");
             DropTable("dbo.AristaSistemas");
             DropTable("dbo.SistemaPlanetarios");
-            DropTable("dbo.Nodoes");
+            DropTable("dbo.Depositoes");
+            DropTable("dbo.Planetas");
             DropTable("dbo.AristaNodoes");
         }
     }
