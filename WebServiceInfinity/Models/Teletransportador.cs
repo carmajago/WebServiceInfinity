@@ -10,7 +10,7 @@ namespace WebServiceInfinity.Models
 {
     public class Teletransportador
     {
-        public Planeta planeta { get; set; }
+        public virtual Planeta planeta { get; set; }
 
         [ForeignKey("planeta"), Key]
         public int planetaFK { get; set; }

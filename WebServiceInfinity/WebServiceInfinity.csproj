@@ -199,9 +199,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201806052036040_mg1.cs" />
-    <Compile Include="Migrations\201806052036040_mg1.Designer.cs">
-      <DependentUpon>201806052036040_mg1.cs</DependentUpon>
+    <Compile Include="Migrations\201806061608470_mg1.cs" />
+    <Compile Include="Migrations\201806061608470_mg1.Designer.cs">
+      <DependentUpon>201806061608470_mg1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807080026306_mgDIOS.cs" />
+    <Compile Include="Migrations\201807080026306_mgDIOS.Designer.cs">
+      <DependentUpon>201807080026306_mgDIOS.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AristaNodo.cs" />
@@ -329,8 +333,11 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201806052036040_mg1.resx">
-      <DependentUpon>201806052036040_mg1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201806061608470_mg1.resx">
+      <DependentUpon>201806061608470_mg1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807080026306_mgDIOS.resx">
+      <DependentUpon>201807080026306_mgDIOS.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

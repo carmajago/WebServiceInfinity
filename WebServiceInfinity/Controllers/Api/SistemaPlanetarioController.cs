@@ -92,6 +92,9 @@ namespace WebServiceInfinity.Controllers.Api
                 return NotFound();
             }
 
+            List<AristaSistema> aristas = db.AristaSistemas.Where(xx => xx.origenFK == id || xx.destinoFK == id).ToList();
+            db.AristaSistemas.RemoveRange(aristas);
+
             db.SistemaPlanetarios.Remove(sistemaPlanetario);
             db.SaveChanges();
 

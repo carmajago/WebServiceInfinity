@@ -26,7 +26,7 @@ namespace WebServiceInfinity.Controllers.Api
         [ResponseType(typeof(Planeta))]
         public IHttpActionResult GetPlaneta(int id)
         {
-            List<Planeta> planetas = db.Planetas.Where(xx=>xx.sistemaPlanetarioFK ==id).ToList();
+            Planeta planetas = db.Planetas.Find(id);
             if (planetas == null)
             {
                 return NotFound();
@@ -86,10 +86,24 @@ namespace WebServiceInfinity.Controllers.Api
         [ResponseType(typeof(Planeta))]
         public IHttpActionResult DeletePlaneta(int id)
         {
+
+            List<AristaNodo> aristas = db.AristaNodoes.Where(xx=>xx.origenFK==id || xx.destinoFK==id).ToList();
+            db.AristaNodoes.RemoveRange(aristas);
             Planeta planeta = db.Planetas.Find(id);
+            Teletransportador teletransportador = db.Teletransportadores.Find(id);
+            Deposito deposito = db.Depositos.Find(id);
+
             if (planeta == null)
             {
                 return NotFound();
+            }
+            if (teletransportador != null)
+            {
+                db.Teletransportadores.Remove(teletransportador);
+            }
+            if (deposito != null)
+            {
+                db.Depositos.Remove(deposito);
             }
 
             db.Planetas.Remove(planeta);

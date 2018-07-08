@@ -2,7 +2,7 @@ namespace WebServiceInfinity.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
-    
+
     public partial class mg1 : DbMigration
     {
         public override void Up()
@@ -10,12 +10,12 @@ namespace WebServiceInfinity.Migrations
             CreateTable(
                 "dbo.AristaNodoes",
                 c => new
-                    {
-                        id = c.Int(nullable: false, identity: true),
-                        origenFK = c.Int(nullable: false),
-                        destinoFK = c.Int(nullable: false),
-                        sistemaFK = c.Int(nullable: false),
-                    })
+                {
+                    id = c.Int(nullable: false, identity: true),
+                    origenFK = c.Int(nullable: false),
+                    destinoFK = c.Int(nullable: false),
+                    sistemaFK = c.Int(nullable: false),
+                })
                 .PrimaryKey(t => t.id)
                 .ForeignKey("dbo.SistemaPlanetarios", t => t.sistemaFK, cascadeDelete: true)
                 .ForeignKey("dbo.Planetas", t => t.destinoFK, cascadeDelete: false)
@@ -23,67 +23,67 @@ namespace WebServiceInfinity.Migrations
                 .Index(t => t.origenFK)
                 .Index(t => t.destinoFK)
                 .Index(t => t.sistemaFK);
-            
+
             CreateTable(
                 "dbo.Planetas",
                 c => new
-                    {
-                        id = c.Int(nullable: false, identity: true),
-                        nombre = c.String(),
-                        x = c.Single(nullable: false),
-                        y = c.Single(nullable: false),
-                        z = c.Single(nullable: false),
-                        idModelo = c.String(),
-                        sistemaPlanetarioFK = c.Int(nullable: false),
-                        iridio = c.Double(nullable: false),
-                        platino = c.Double(nullable: false),
-                        paladio = c.Double(nullable: false),
-                        elementoZero = c.Double(nullable: false),
-                        arista_id = c.Int(),
-                    })
+                {
+                    id = c.Int(nullable: false, identity: true),
+                    nombre = c.String(),
+                    x = c.Single(nullable: false),
+                    y = c.Single(nullable: false),
+                    z = c.Single(nullable: false),
+                    idModelo = c.String(),
+                    sistemaPlanetarioFK = c.Int(nullable: false),
+                    iridio = c.Double(nullable: false),
+                    platino = c.Double(nullable: false),
+                    paladio = c.Double(nullable: false),
+                    elementoZero = c.Double(nullable: false),
+                    arista_id = c.Int(),
+                })
                 .PrimaryKey(t => t.id)
                 .ForeignKey("dbo.AristaNodoes", t => t.arista_id)
                 .ForeignKey("dbo.SistemaPlanetarios", t => t.sistemaPlanetarioFK, cascadeDelete: true)
                 .Index(t => t.sistemaPlanetarioFK)
                 .Index(t => t.arista_id);
-            
+
             CreateTable(
                 "dbo.Depositoes",
                 c => new
-                    {
-                        planetaFK = c.Int(nullable: false),
-                    })
+                {
+                    planetaFK = c.Int(nullable: false),
+                })
                 .PrimaryKey(t => t.planetaFK)
-                .ForeignKey("dbo.Planetas", t => t.planetaFK)
+                .ForeignKey("dbo.Planetas", t => t.planetaFK, cascadeDelete: true)
                 .Index(t => t.planetaFK);
-            
+
             CreateTable(
                 "dbo.SistemaPlanetarios",
                 c => new
-                    {
-                        id = c.Int(nullable: false, identity: true),
-                        nombre = c.String(),
-                        x = c.Single(nullable: false),
-                        y = c.Single(nullable: false),
-                        z = c.Single(nullable: false),
-                        nebulosaFK = c.Int(nullable: false),
-                        arista_id = c.Int(),
-                    })
+                {
+                    id = c.Int(nullable: false, identity: true),
+                    nombre = c.String(),
+                    x = c.Single(nullable: false),
+                    y = c.Single(nullable: false),
+                    z = c.Single(nullable: false),
+                    nebulosaFK = c.Int(nullable: false),
+                    arista_id = c.Int(),
+                })
                 .PrimaryKey(t => t.id)
                 .ForeignKey("dbo.AristaSistemas", t => t.arista_id)
                 .ForeignKey("dbo.Nebulosas", t => t.nebulosaFK, cascadeDelete: true)
                 .Index(t => t.nebulosaFK)
                 .Index(t => t.arista_id);
-            
+
             CreateTable(
                 "dbo.AristaSistemas",
                 c => new
-                    {
-                        id = c.Int(nullable: false, identity: true),
-                        origenFK = c.Int(nullable: false),
-                        destinoFK = c.Int(nullable: false),
-                        nebulosaFK = c.Int(nullable: false),
-                    })
+                {
+                    id = c.Int(nullable: false, identity: true),
+                    origenFK = c.Int(nullable: false),
+                    destinoFK = c.Int(nullable: false),
+                    nebulosaFK = c.Int(nullable: false),
+                })
                 .PrimaryKey(t => t.id)
                 .ForeignKey("dbo.SistemaPlanetarios", t => t.destinoFK, cascadeDelete: false)
                 .ForeignKey("dbo.Nebulosas", t => t.nebulosaFK, cascadeDelete: false)
@@ -91,44 +91,44 @@ namespace WebServiceInfinity.Migrations
                 .Index(t => t.origenFK)
                 .Index(t => t.destinoFK)
                 .Index(t => t.nebulosaFK);
-            
+
             CreateTable(
                 "dbo.Nebulosas",
                 c => new
-                    {
-                        id = c.Int(nullable: false, identity: true),
-                        nombre = c.String(),
-                        x = c.Single(nullable: false),
-                        y = c.Single(nullable: false),
-                        z = c.Single(nullable: false),
-                        danger = c.Boolean(nullable: false),
-                        ViaLacteaFK = c.Int(nullable: false),
-                    })
+                {
+                    id = c.Int(nullable: false, identity: true),
+                    nombre = c.String(),
+                    x = c.Single(nullable: false),
+                    y = c.Single(nullable: false),
+                    z = c.Single(nullable: false),
+                    danger = c.Boolean(nullable: false),
+                    ViaLacteaFK = c.Int(nullable: false),
+                })
                 .PrimaryKey(t => t.id)
                 .ForeignKey("dbo.ViaLacteas", t => t.ViaLacteaFK, cascadeDelete: true)
                 .Index(t => t.ViaLacteaFK);
-            
+
             CreateTable(
                 "dbo.ViaLacteas",
                 c => new
-                    {
-                        id = c.Int(nullable: false, identity: true),
-                        nombre = c.String(),
-                    })
+                {
+                    id = c.Int(nullable: false, identity: true),
+                    nombre = c.String(),
+                })
                 .PrimaryKey(t => t.id);
-            
+
             CreateTable(
                 "dbo.Teletransportadors",
                 c => new
-                    {
-                        planetaFK = c.Int(nullable: false),
-                    })
+                {
+                    planetaFK = c.Int(nullable: false),
+                })
                 .PrimaryKey(t => t.planetaFK)
-                .ForeignKey("dbo.Planetas", t => t.planetaFK)
+                .ForeignKey("dbo.Planetas", t => t.planetaFK, cascadeDelete: true)
                 .Index(t => t.planetaFK);
-            
+
         }
-        
+
         public override void Down()
         {
             DropForeignKey("dbo.AristaNodoes", "origenFK", "dbo.Planetas");
