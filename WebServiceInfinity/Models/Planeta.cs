@@ -21,7 +21,7 @@ namespace WebServiceInfinity.Models
 
         public string idModelo { get; set; }
 
-        
+        [JsonIgnore]
         public virtual List<AristaNodo> aristas { get; set; }
 
         [ForeignKey("sistemaPlanetario")]

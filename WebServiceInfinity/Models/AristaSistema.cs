@@ -13,8 +13,11 @@ namespace WebServiceInfinity.Models
         [Key]
         public int id { get; set; }
 
+        [JsonIgnore]
         [ForeignKey("origenFK")]
         public SistemaPlanetario origen { get; set; }
+
+        [JsonIgnore]
         [ForeignKey("destinoFK")]
         public SistemaPlanetario destino { get; set; }
 
